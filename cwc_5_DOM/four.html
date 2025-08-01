@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #212121; color: antiquewhite;">
+    <ul class="language">
+        <li>JavaScript</li>
+    </ul>
+</body>
+<script>
+    function addLi(langName){
+        const li = document.createElement('li');
+        li.innerText = `${langName}`;
+        document.querySelector('.language').appendChild(li);
+    }
+
+    addLi('Python');
+
+    function optimizedAddLi(langName){
+        const li = document.createElement('li');
+        li.appendChild(document.createTextNode(langName));
+        document.querySelector('.language').appendChild(li);
+
+    }
+    optimizedAddLi('c++');
+
+
+    //EDITING EXISTING ELEMENT
+
+    const secondEle = document.querySelector('li:nth-child(2)');
+    // secondEle.innerText = 'Java'
+                        //or
+    const newLi = document.createElement('li'); 
+    newLi.textContent = 'Java';
+    secondEle.replaceWith(newLi);
+
+    // edit 1st 
+   
+    const firstEle = document.querySelector('li:first-child');
+    firstEle.outerHTML = '<li>TypeScript</li>';
+
+
+    // remove
+    const remEle = document.querySelector('li:last-child');
+    remEle.remove();
+</script>
+</html>
