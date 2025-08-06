@@ -1,0 +1,37 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <h1>Get User Data</h1>
+     <button id="stop">Stop</button>
+    
+</body>
+<script>
+    // JavaScript is a synchronus and single -threaded language
+    
+    // setTimeout() function is used to execute a function after a specified time
+    setTimeout(function(){
+        console.log("Hello");
+    },5000)
+
+
+    const changeText = function(){
+        document.querySelector('h1').innerHTML = 'Ayush is Best';
+    }
+    const timeOut = setTimeout(changeText, 3000);
+
+    // clearTimeout() function is used to clear the timeout before it gets executed
+    document.querySelector('#stop').addEventListener('click',() => {
+        clearTimeout(timeOut);
+    })
+
+    
+    
+</script>
+</html>
