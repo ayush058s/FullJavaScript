@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+Value    	State	Description <br>
+0	    UNSENT	Client has been created. open() not called yet. <br>
+1     	OPENED	open() has been called.   <br>
+2	    HEADERS_RECEIVED	send() has been called, and headers and status are available.  <br>
+3	   LOADING	Downloading; responseText holds partial data.  <br>
+4	   DONE	The operation is complete.   <br>
+</body>
+
+<script>
+    const requestURL = "https://jsonplaceholder.typicode.com/todos/1";
+    // ajax request 
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', requestURL);
+    
+    // onreadystatechange is a property of the XMLHttpRequest object. It is a function that is called whenever the readyState property of the XMLHttpRequest object changes.
+    xhr.onreadystatechange = function(){
+        console.log(xhr.readyState);
+        if(xhr.readyState == 4){
+            const data = JSON.parse(this.responseText); // as we get data in string so we convert it into object
+            console.log(data);
+            console.log(data.title);
+
+        }
+
+    }
+
+    
+    xhr.send();
+</script>
+</html>
